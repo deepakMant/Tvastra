@@ -1,0 +1,67 @@
+<!-- first code   -->
+
+<% var l=[];
+var h=[];
+var h1=[];
+var t=[];
+var t1=[];
+for(var q=0;q<alldoc.length;q++){
+    if(!l.includes(alldoc[q].state)){
+        l.push(alldoc[q].state);
+    }
+}
+
+for(var q=0;q<alldoc.length;q++){
+    
+    if(!h.includes(alldoc[q].hospitals)){
+        h.push(alldoc[q].hospitals);
+        var p=JSON.parse(alldoc[q].hospitals)[0].value;
+        h1.push(p);
+    }
+}
+
+for(var q=0;q<alldoc.length;q++){
+    
+    if(!t.includes(alldoc[q].specialization)){
+        t.push(alldoc[q].specialization);
+        var p=JSON.parse(alldoc[q].specialization)[0].value;
+        t1.push(p);
+    }
+}
+%>
+
+
+
+
+
+
+
+
+<!-- 2nd code  -->
+
+
+
+<% if(l.length==0){%>
+    <label>No filter Available</label>
+<%}%>
+<% for (var i=0;i<l.length;i++){%>
+<input type="checkbox" id="<%= l[i] %>" name="state" value="<%= l[i] %>" onchange="this.form.submit()"
+<% if(filter.includes(l[i])){%>checked <%}else{%>unchecked<%}%>
+>
+<label for="<%= l[i] %>"> <%= l[i] %></label><br>
+
+<%}%>
+
+
+
+
+
+
+<!-- 3rd code  -->
+
+
+
+<% if(t.length==0){%>
+    <label>No filter Available</label>
+<%}%>
+<% for (var i=0;i<t.length;i++){%>
